@@ -609,7 +609,7 @@ class CeilTimeout(async_timeout.timeout):
                 raise RuntimeError(
                     'Timeout context manager should be used inside a task')
             self._cancel_handler = self._loop.call_at(
-                ceil(self._loop.time() + self._timeout), self._cancel_task)
+                self._loop.time() + self._timeout, self._cancel_task)
         return self
 
 
